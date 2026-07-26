@@ -1,0 +1,2 @@
+- name: Preview Pages
+  uses: rajyan/preview-pages@v1.3.37
