@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Test Extraction Pipeline — Sabrina Picari</title>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        document.documentElement.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Sabrina Picari<span>// AI & Content Automation</span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#workflows" class="active">Workflows</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="https://www.linkedin.com/in/sabrina-picari" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Detail Header -->
+  <section class="container detail-header">
+    <div class="breadcrumbs">
+      <a href="index.html">Home</a> &gt; <a href="index.html#workflows">Workflows</a> &gt; PDF Test Extraction
+    </div>
+    
+    <div class="detail-title-section">
+      <div>
+        <span class="project-tag" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); color: var(--accent-teal); margin-bottom: 0.75rem;">Active in Production</span>
+        <h1>2. Product Test PDF Extraction & Multilingual Distribution</h1>
+        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 1.1rem; max-width: 800px;">
+          A fully automated batch pipeline that scans, downloads, and parses technical product test details from SharePoint PDFs, matches items in OpenSearch, and generates localized translations (IT, EN, ES, FR) of the editorial verdict in parallel.
+        </p>
+      </div>
+    </div>
+
+    <!-- KPIs Strip -->
+    <div class="kpi-strip">
+      <div class="glass kpi-strip-item" style="padding: 1.25rem 2rem; border-color: rgba(16, 185, 129, 0.15);">
+        <span class="kpi-label">Processing Time</span>
+        <span class="kpi-value glow-teal">A Few Minutes</span>
+        <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">(Compared to 2 hours manual before)</span>
+      </div>
+      <div class="glass kpi-strip-item" style="padding: 1.25rem 2rem; border-color: rgba(139, 92, 246, 0.15);">
+        <span class="kpi-label">Automation</span>
+        <span class="kpi-value glow-violet">100% Automated</span>
+        <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Scheduled via weekly cron trigger</span>
+      </div>
+      <div class="glass kpi-strip-item" style="padding: 1.25rem 2rem; border-color: rgba(59, 130, 246, 0.15);">
+        <span class="kpi-label">Frequency</span>
+        <span class="kpi-value glow-teal">4-5 times / month</span>
+        <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Automatic weekly batch checks</span>
+      </div>
+      <div class="glass kpi-strip-item" style="padding: 1.25rem 2rem; border-color: rgba(255,255,255,0.05);">
+        <span class="kpi-label">Operational Impact</span>
+        <span class="kpi-value" style="color: var(--text-main); font-size: 1.1rem; font-weight: 600; margin-top: 0.5rem;">Zero Manual Work</span>
+        <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Tested and active in production</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Sandbox Layout -->
+  <section class="container detail-layout">
+    
+    <!-- Flowchart Pane -->
+    <div class="glass flow-container" style="position: relative;">
+      
+      <div style="position: absolute; top: 1rem; left: 1.5rem; font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-blue); display: inline-block;"></span>
+        Click any node to inspect technical parameters
+      </div>
+
+      <svg class="interactive-flow" viewBox="0 0 1120 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- Markers -->
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="arrow">
+            <path d="M 0 0 L 10 5 L 0 10 z" />
+          </marker>
+          <marker id="arrow-active" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="arrow-active">
+            <path d="M 0 0 L 10 5 L 0 10 z" />
+          </marker>
+        </defs>
+
+        <!-- Connections (Paths) Row 1 -->
+        <path class="flow-connector" data-connection="pdf-trigger" d="M 160 85 H 190" marker-end="url(#arrow)" />
+        <path class="flow-connector" data-connection="pdf-list" d="M 310 85 H 340" marker-end="url(#arrow)" />
+        <path class="flow-connector" data-connection="pdf-filter" d="M 460 85 H 490" marker-end="url(#arrow)" />
+        <path class="flow-connector" data-connection="pdf-loop" d="M 610 85 H 640" marker-end="url(#arrow)" />
+        <path class="flow-connector" data-connection="pdf-download" d="M 760 85 H 790" marker-end="url(#arrow)" />
+        <path class="flow-connector" data-connection="pdf-ai-extract" d="M 910 85 H 940" marker-end="url(#arrow)" />
+        
+        <!-- Winding down to Row 2 -->
+        <path class="flow-connector" data-connection="pdf-catalog-match" d="M 1000 110 C 1000 165, 1000 165, 1000 220" marker-end="url(#arrow)" />
+        
+        <!-- Row 2 connections flowing left -->
+        <path class="flow-connector" data-connection="pdf-split-route" d="M 940 245 H 880" marker-end="url(#arrow)" />
+        <path class="flow-connector" data-connection="pdf-lang-versions" d="M 740 245 H 680" marker-end="url(#arrow)" />
+        <path class="flow-connector" data-connection="pdf-ai-translate" d="M 540 245 H 480" marker-end="url(#arrow)" />
+
+        <!-- Nodes Row 1 -->
+        <!-- Weekly Scheduler -->
+        <g class="svg-flow-node node-trigger" data-node="pdf-trigger" transform="translate(40, 60)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">Weekly Scheduler</text>
+          <text class="subtitle" x="12" y="38">Cron Trigger Node</text>
+        </g>
+
+        <!-- List SharePoint Files -->
+        <g class="svg-flow-node node-connector" data-node="pdf-list" transform="translate(190, 60)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">List SharePoint</text>
+          <text class="subtitle" x="12" y="38">Folder Scan Node</text>
+        </g>
+
+        <!-- Filter Unprocessed -->
+        <g class="svg-flow-node node-connector" data-node="pdf-filter" transform="translate(340, 60)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">Filter Files</text>
+          <text class="subtitle" x="12" y="38">Exclude Processed</text>
+        </g>
+
+        <!-- Batch Loop -->
+        <g class="svg-flow-node node-code" data-node="pdf-loop" transform="translate(490, 60)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">Batch Loop</text>
+          <text class="subtitle" x="12" y="38">Loop Iterator Node</text>
+        </g>
+
+        <!-- Download SharePoint PDF -->
+        <g class="svg-flow-node node-connector" data-node="pdf-download" transform="translate(640, 60)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">Download PDF</text>
+          <text class="subtitle" x="12" y="38">Get SharePoint Binary</text>
+        </g>
+
+        <!-- AI PDF Extractor -->
+        <g class="svg-flow-node node-ai" data-node="pdf-ai-extract" transform="translate(790, 60)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">AI PDF Extractor</text>
+          <text class="subtitle" x="12" y="38">OpenAI Vision Agent</text>
+        </g>
+
+        <!-- OpenSearch Catalog Match -->
+        <g class="svg-flow-node node-connector" data-node="pdf-catalog-match" transform="translate(940, 60)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">Catalog Match</text>
+          <text class="subtitle" x="12" y="38">OpenSearch Verify</text>
+        </g>
+
+        <!-- Nodes Row 2 -->
+        <!-- Split Route -->
+        <g class="svg-flow-node node-code" data-node="pdf-split-route" transform="translate(940, 220)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">Split Route</text>
+          <text class="subtitle" x="12" y="38">DE Master / Localizer</text>
+        </g>
+
+        <!-- Create Language Matrix -->
+        <g class="svg-flow-node node-code" data-node="pdf-lang-versions" transform="translate(740, 220)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">Lang Matrix</text>
+          <text class="subtitle" x="12" y="38">JS Task Builder</text>
+        </g>
+
+        <!-- AI Multilingual Localizer -->
+        <g class="svg-flow-node node-ai" data-node="pdf-ai-translate" transform="translate(540, 220)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">AI Localizer</text>
+          <text class="subtitle" x="12" y="38">Parallel OpenAI Translate</text>
+        </g>
+
+        <!-- SharePoint CSV Exporter -->
+        <g class="svg-flow-node node-connector" data-node="pdf-export" transform="translate(340, 220)">
+          <rect width="120" height="50" />
+          <text class="title" x="12" y="24">Export & Upload</text>
+          <text class="subtitle" x="12" y="38">CSV Exporter & Sync</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <!-- Inspector Panel (Glass Card) -->
+    <div class="glass inspector-panel" id="inspector">
+      <!-- Loading state will be overwritten by JS -->
+      <div class="inspector-header">
+        <div class="inspector-node-type">Node Inspector</div>
+        <h3 class="inspector-title">Select a step</h3>
+      </div>
+      <div class="inspector-body">
+        <p>Click on any block in the flowchart diagram to view technical parameters, n8n node structures, and example output JSON schemas.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Business Context Writeup for Recruiters -->
+  <section class="container" style="margin-top: 4rem;">
+    <div class="glass" style="padding: 3rem;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-family: 'Outfit';">Business Context & Engineering Details</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; font-size: 0.95rem; line-height: 1.7;">
+        
+        <div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--accent-blue);">The Business Challenge Solved</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            Every week, technical test reports are generated in PDF format by the German editorial team. Manually processing these PDFs (reading tables, analyzing technical ratings, collecting pros/cons), finding the matched item in the e-commerce database, and localizing summaries into 4 target markets (Italy, UK, Spain, France) required **about 2 hours of manual copying and pasting per execution**, 4-5 times a month.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+            The automated pipeline removes this bottleneck entirely: it runs automatically in the background, parses file structures, matches entities against the catalog, and distributes localized CSV feeds to target SharePoint directories in minutes.
+          </p>
+          <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Key Project Highlights:</h4>
+          <ul style="list-style: none; padding-left: 0; color: var(--text-muted);">
+            <li style="margin-bottom: 0.4rem;">✔ <strong>Zero Human Intervention:</strong> Automated trigger scans and processes the incoming queue.</li>
+            <li style="margin-bottom: 0.4rem;">✔ <strong>AI PDF Parser:</strong> OpenAI processes table grids and editorial text, returning structured JSON schemas.</li>
+            <li style="margin-bottom: 0.4rem;">✔ <strong>Catalog Mapping:</strong> Automatic matches established through OpenSearch queries.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--accent-teal);">Technical Highlights & Localization</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            <strong>Batch Processing Loop:</strong> Files are managed one-by-one inside a n8n loop block. This isolates potential failures and manages API rate limits during bulk file uploads without crashing the entire run.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            <strong>Parallel Translation Matrix:</strong> Instead of translating sequentially (which causes latency and high run times), a custom JavaScript node splits the translation task into parallel branches. The OpenAI translation nodes execute concurrently for Italian, English, Spanish, and French, accelerating completion speeds.
+          </p>
+          <p style="color: var(--text-muted);">
+            <strong>Reliability:</strong> This workflow is fully tested, optimized, and actively running in production, saving hours of manual translation and data entry.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 1rem;">&copy; 2026 Sabrina Picari. All rights reserved.</p>
+      <p style="font-size: 0.8rem; color: var(--text-muted);">
+        Professional profile: <a href="https://www.linkedin.com/in/sabrina-picari" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
