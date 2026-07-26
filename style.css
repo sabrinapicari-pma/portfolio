@@ -24,6 +24,7 @@
   --grad-teal: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
   --grad-violet: linear-gradient(135deg, #7f00ff 0%, #e100ff 100%);
   --grad-card: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --hero-name-grad: linear-gradient(120deg, #ffffff 30%, #a5b4fc 100%);
 
   /* Header & Background details */
   --header-bg: rgba(8, 9, 13, 0.7);
@@ -58,6 +59,7 @@ html[data-theme="light"] {
   --glass-glow: rgba(59, 130, 246, 0.05);
   
   --grad-card: linear-gradient(180deg, rgba(15, 23, 42, 0.01) 0%, rgba(15, 23, 42, 0.03) 100%);
+  --hero-name-grad: linear-gradient(120deg, #0f172a 30%, #3b82f6 100%);
   
   --header-bg: rgba(248, 250, 252, 0.7);
   --header-border: rgba(15, 23, 42, 0.04);
@@ -240,7 +242,7 @@ html[data-theme="light"] .theme-toggle-btn .moon-icon {
   font-size: 3.5rem;
   line-height: 1.1;
   margin-bottom: 1rem;
-  background: linear-gradient(120deg, #ffffff 30%, #a5b4fc 100%);
+  background: var(--hero-name-grad);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
