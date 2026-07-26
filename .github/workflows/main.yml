@@ -1,2 +1,32 @@
-- name: Preview Pages
-  uses: rajyan/preview-pages@v1.3.37
+# pull_request and push event is supported.
+# This action also works for pull_request_target event, but should not be used in public repositories.
+# Please read https://securitylab.github.com/research/github-actions-preventing-pwn-requests/ before using this action with pull_request_target event.
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+# contents: write is required for deploying the GitHub Pages if using the default GITHUB_TOKEN
+# pull-requests: write is required if you want to comment the preview page url to the pull request
+permissions:
+  pull-requests: write
+  contents: write
+
+# recommended to set a concurrency group
+concurrency:
+  group: preview-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: codespaces-prebuild
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # run some build steps here and export the result to a directory
+      - name: Preview Pages
+        uses: rajyan/preview-pages@v1
+        with:
+          source-dir: test
