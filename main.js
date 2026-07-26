@@ -346,7 +346,7 @@ const nodeDatabase = {
   "pdf-export": {
     title: "CSV Exporter & SharePoint Upload",
     type: "SharePoint Node",
-    desc: "Compiles localized CSV files and uploads them to language-specific SharePoint folders, ready for publishing.",
+    desc: "Compiles localized CSV files and uploads them to language-specific SharePoint folders, ready for human review before publishing.",
     meta: {
       "SharePoint Target": "/Shared Documents/Editorial_Feeds/{lang}/",
       "Formats": "IT, EN, ES, FR, DE CSVs",
