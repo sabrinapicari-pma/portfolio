@@ -1,5 +1,10 @@
 // main.js - Interactivity & SVG Node Inspector for Sabrina Picari's Portfolio
 
+// Centralized configuration for the portfolio
+const CONFIG = {
+  linkedinUrl: "https://www.linkedin.com/in/sabrinapicari"
+};
+
 // Node database containing technical details for each workflow step (in English)
 const nodeDatabase = {
   // Workflow 1: Web Review Scraping & Catalog Match Engine
@@ -367,6 +372,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Setup theme toggle buttons
   setupThemeToggle();
 
+  // Setup social links dynamically
+  setupSocialLinks();
+
   // Select all SVG flow nodes
   const nodes = document.querySelectorAll(".svg-flow-node");
   
@@ -540,5 +548,13 @@ function setupThemeToggle() {
     if (!localStorage.getItem("theme")) {
       document.documentElement.setAttribute("data-theme", e.matches ? "light" : "dark");
     }
+  });
+}
+
+// Dynamically inject configuration values (like LinkedIn profile link) into matching DOM elements
+function setupSocialLinks() {
+  const linkedinLinks = document.querySelectorAll('.linkedin-link');
+  linkedinLinks.forEach(link => {
+    link.href = CONFIG.linkedinUrl;
   });
 }
