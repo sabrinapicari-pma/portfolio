@@ -799,6 +799,12 @@ marker.arrow-wip {
   flex-direction: column;
 }
 
+.business-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+}
+
 /* Footer styling */
 footer {
   border-top: 1px solid rgba(255, 255, 255, 0.03);
@@ -978,6 +984,10 @@ footer a {
   }
   .detail-layout + .container > .glass {
     padding: 1.25rem !important;
+  }
+  .business-details-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .meta-row {
     gap: 1rem;
