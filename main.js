@@ -1,5 +1,30 @@
 // main.js - Interactivity & SVG Node Inspector for Sabrina Picari's Portfolio
 
+// Collapsible navigation keeps links usable without overflowing narrow screens.
+const navToggle = document.querySelector('.nav-toggle');
+const primaryNavigation = document.querySelector('#primary-navigation');
+
+if (navToggle && primaryNavigation) {
+  const closeNavigation = () => {
+    navToggle.setAttribute('aria-expanded', 'false');
+    primaryNavigation.classList.remove('is-open');
+  };
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!isOpen));
+    primaryNavigation.classList.toggle('is-open', !isOpen);
+  });
+
+  primaryNavigation.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeNavigation);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeNavigation();
+  });
+}
+
 // Node database containing technical details for each workflow step (in English)
 const nodeDatabase = {
   // Workflow 1: Web Review Scraping & Catalog Match Engine
